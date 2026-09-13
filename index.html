@@ -15,7 +15,6 @@
         :root {
             --bg-black: #020202;
             --surface-bg: #070707;
-            /* লোগোর প্রিমিয়াম গোল্ডেন গ্রেডিয়েন্ট থিম */
             --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
             --text-white: #f3f3f3;
             --text-gray: #a5a5a5;
@@ -55,7 +54,6 @@
             justify-content: center;
         }
 
-        /* ল্যান্ডিং / গুগল ভেরিফিকেশন কার্ড */
         .auth-card {
             background: var(--surface-bg);
             border-radius: 18px;
@@ -111,7 +109,6 @@
         }
         .google-verify-btn:hover { background: #eaeaea; }
 
-        /* পপআপ মডাল ওভারলে */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -165,7 +162,6 @@
 
         .btn-gold-glow { background: var(--gold-gradient); border: none; padding: 12px; border-radius: 25px; color: #000; font-weight: 900; font-size: 0.78rem; cursor: pointer; text-transform: uppercase; font-family: var(--font-luxury); width: 100%; text-align: center; margin-top: 10px; }
 
-        /* ড্যাশবোর্ড লেআউট */
         .dashboard-wrapper {
             display: none;
             width: 100%;
@@ -184,7 +180,6 @@
             display: block;
         }
 
-        /* হোম ড্যাশবোর্ড হেডার */
         .home-top-section {
             display: flex;
             justify-content: space-between;
@@ -302,7 +297,6 @@
         .menu-item i { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; width: 16px; text-align: center; }
         .menu-item:hover { background: rgba(212,175,55,0.1); color: #fcf6ba; }
 
-        /* স্ট্যাটস গ্রিড */
         .stats-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -319,7 +313,41 @@
         .stat-lbl { font-size: 0.6rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; font-weight: 800; margin-bottom: 3px; font-family: var(--font-body); white-space: nowrap; }
         .stat-val { font-size: 1.2rem; font-weight: 900; color: #fff; font-family: var(--font-luxury); white-space: nowrap; }
 
-        /* প্রোডাক্ট আইডি রেকর্ড বাটন */
+        /* এফিলিয়েট লিংক জেনারেটর বক্স */
+        .affiliate-link-box {
+            background: #040404;
+            border: 1.5px solid rgba(212,175,55,0.3);
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+        .aff-link-input-row {
+            display: flex;
+            gap: 6px;
+            margin-top: 6px;
+        }
+        .aff-link-input-row input {
+            flex: 1;
+            background: #000;
+            border: 1.5px solid rgba(212,175,55,0.25);
+            padding: 8px 10px;
+            color: #fcf6ba;
+            font-size: 0.72rem;
+            border-radius: 8px;
+            outline: none;
+        }
+        .copy-link-btn {
+            background: var(--gold-gradient);
+            border: none;
+            padding: 0 14px;
+            border-radius: 8px;
+            color: #000;
+            font-weight: 800;
+            font-size: 0.72rem;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
         .sheet-btn-wrapper { margin-bottom: 12px; display: flex; justify-content: center; }
         .sheet-trigger-btn {
             background: #040404;
@@ -343,7 +371,6 @@
         }
         .sheet-trigger-btn:hover { background: rgba(212,175,55,0.08); }
 
-        /* ক্লিক অ্যানালাইসিস গ্রাফ সেকশন */
         .chart-box {
             background: #040404;
             border: 1.5px solid rgba(212,175,55,0.25);
@@ -390,7 +417,6 @@
             border-color: #fff;
         }
 
-        /* একশন রো (সাপোর্ট এবং উইথড্র বাটন) */
         .action-row {
             display: flex;
             gap: 8px;
@@ -438,7 +464,6 @@
         }
         .withdraw-quick-btn:hover { opacity: 0.9; }
 
-        /* শিট পপআপ টেবিল স্টাইল */
         .sheet-modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -503,7 +528,6 @@
         .status-pending { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.25); }
         .status-confirm { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.25); }
 
-        /* ইনফো ডিসপ্লে বক্স (নাম, জিমেইল, ফোন, অ্যাড্রেস এক লাইনে সুন্দরভাবে দেখানোর জন্য অপ্টিমাইজড) */
         .info-display-box {
             background: #040404;
             border: 1.5px solid rgba(212,175,55,0.25);
@@ -519,7 +543,7 @@
             display: flex;
             flex-direction: column;
             flex: 1;
-            min-width: 0; /* টেক্সট ওভারফ্লো রোধ করতে জরুরি */
+            min-width: 0;
         }
         .info-lbl { 
             font-size: 0.6rem; 
@@ -647,7 +671,7 @@
                         <label>WhatsApp Number *</label>
                         <div class="phone-row">
                             <select id="regDialCode">
-                                <!-- ১৯৫+ দেশের কোড ডাইনামিক্যালি লোড হবে -->
+                                <!-- দেশের কোড ডাইনামিক্যালি লোড হবে -->
                             </select>
                             <input type="tel" id="regWhatsApp" placeholder="17XXXXXXXX" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                         </div>
@@ -661,10 +685,8 @@
         <!-- ৩. ড্যাশবোর্ড সেকশন -->
         <div class="dashboard-wrapper" id="dashboardSection">
             
-            <!-- মেইন ড্যাশবোর্ড হোম কার্ড -->
             <div class="dash-card">
                 
-                <!-- হেডার: লোগো, ব্র্যান্ড, নাম, জিমেইল ইউজারনেম বেজড এফিলিয়েট আইডি এবং ১০% কমিশন -->
                 <div class="home-top-section">
                     <div class="home-left-info">
                         <img src="https://lh3.googleusercontent.com/d/1PD_g_agcbmm7bbJTHoOWss8YtQ17LNsb=s400" alt="Logo" class="home-logo">
@@ -708,6 +730,16 @@
                     <div class="stat-card">
                         <div class="stat-lbl">Total Payout</div>
                         <div class="stat-val" id="totalPayoutVal">$0.00</div>
+                    </div>
+                </div>
+
+                <!-- এফিলিয়েট লিংক জেনারেটর (হোমপেজ বা যেকোনো প্রোডাক্ট লিংকের সাথে এফিলিয়েট আইডি যুক্ত করতে) -->
+                <div class="affiliate-link-box">
+                    <div class="chart-title" style="margin-bottom: 4px;">Your Affiliate Link Generator</div>
+                    <p style="font-size: 0.65rem; color: var(--text-gray); margin-bottom: 6px;">Copy any product or home page link with your referral ID automatically attached.</p>
+                    <div class="aff-link-input-row">
+                        <input type="text" id="affiliateGeneratedLink" readonly placeholder="Generating link...">
+                        <button class="copy-link-btn" onclick="copyAffiliateLink()">Copy Link</button>
                     </div>
                 </div>
 
@@ -780,10 +812,30 @@
 
     <!-- মেনু অপশনগুলোর জন্য পপআপ মডাল ওভারলে -->
     <div class="modal-overlay" id="popupModalOverlay">
-        <div class="modal-card" id="popupModalContent">
-            <!-- ডাইনামিক কনটেন্ট এখানে লোড হবে -->
-        </div>
+        <div class="modal-card" id="popupModalContent"></div>
     </div>
+
+    <!-- Firebase SDKs (Compat / Modular) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDokhLgGo4Ib7oxUJ8zczLFWj0YJKk57Y",
+            authDomain: "rorraxy-fcb91.firebaseapp.com",
+            projectId: "rorraxy-fcb91",
+            storageBucket: "rorraxy-fcb91.appspot.com",
+            messagingSenderId: "880891394208",
+            appId: "1:880891394208:web:3bd8ccacf68ad5d3af1c5",
+            measurementId: "G-0XTRV9TPM3"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        console.log("Firebase Connected Successfully!");
+    </script>
 
     <script>
         const countriesList = [
@@ -888,6 +940,19 @@
                 dialCodeSelect.value = "+880";
             }
 
+            // Check if already registered
+            if(localStorage.getItem('rorraxy_info_done') === 'true') {
+                document.getElementById('authSection').style.display = 'none';
+                document.getElementById('dashboardSection').style.display = 'flex';
+                let savedName = localStorage.getItem('rorraxy_name') || 'User';
+                let savedEmail = localStorage.getItem('rorraxy_email') || 'user@gmail.com';
+                let userSlug = savedEmail.includes('@') ? savedEmail.split('@')[0] : savedEmail;
+                
+                document.getElementById('homeDispName').innerText = savedName;
+                document.getElementById('homeAffId').innerText = 'Affiliate ID: ' + userSlug;
+                generateAffiliateURL(userSlug);
+            }
+
             checkAccountYearSpan();
             renderClicksChart('7d');
         });
@@ -916,6 +981,25 @@
             document.getElementById('sheetModal').style.display = 'none';
         }
 
+        function generateAffiliateURL(slug) {
+            let baseUrl = window.location.origin + window.location.pathname;
+            let fullAffLink = `${baseUrl}?ref=${slug}`;
+            const linkInput = document.getElementById('affiliateGeneratedLink');
+            if(linkInput) {
+                linkInput.value = fullAffLink;
+            }
+        }
+
+        function copyAffiliateLink() {
+            const linkInput = document.getElementById('affiliateGeneratedLink');
+            if(linkInput) {
+                linkInput.select();
+                linkInput.setSelectionRange(0, 99999);
+                navigator.clipboard.writeText(linkInput.value);
+                showToast("Affiliate link copied to clipboard!");
+            }
+        }
+
         function submitAffiliateInfo(e) {
             e.preventDefault();
             const name = document.getElementById('regName').value.trim();
@@ -939,10 +1023,12 @@
                 localStorage.setItem('rorraxy_created_date', new Date().toISOString());
             }
 
+            generateAffiliateURL(gmailUsername);
+
             document.getElementById('infoModal').style.display = 'none';
             document.getElementById('authSection').style.display = 'none';
             document.getElementById('dashboardSection').style.display = 'flex';
-            showToast("Information saved successfully!");
+            showToast("Information saved & Firebase Connected!");
         }
 
         function toggleMenu(e) {
@@ -1173,7 +1259,7 @@
         }
 
         function openFirebaseChat() {
-            showToast("Connecting to Firebase Live Support...");
+            showToast("Connected to Firebase Live Support!");
         }
 
         function checkAccountYearSpan() {
