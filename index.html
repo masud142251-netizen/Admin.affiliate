@@ -35,7 +35,6 @@
             -webkit-font-smoothing: antialiased; 
         }
 
-        /* বডিকে ফ্লেক্স করে সবকিছু উল্লম্ব এবং অনুভূমিকভাবে একদম মাঝখানে (Middle) রাখা হয়েছে */
         body {
             display: flex;
             justify-content: center;
@@ -47,7 +46,6 @@
 
         .custom-toast { position: fixed; top: 15px; left: 50%; transform: translateX(-50%); background: rgba(12, 12, 12, 0.98); border: 1.5px solid; border-image: var(--gold-gradient) 1; color: #fcf6ba; padding: 8px 16px; border-radius: 30px; font-size: 0.75rem; font-weight: 700; z-index: 999999; display: none; box-shadow: 0 0 20px rgba(212,175,55,0.3); font-family: var(--font-body); white-space: nowrap; }
 
-        /* প্রশস্ত ও রেসপন্সিভ স্ক্রিন লেআউট */
         .page-container {
             width: 100%;
             max-width: 650px;
@@ -113,7 +111,7 @@
         }
         .google-verify-btn:hover { background: #eaeaea; }
 
-        /* পপআপ মডাল ওভারলে (সবসময় মাঝখানে থাকবে) */
+        /* পপআপ মডাল ওভারলে */
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -505,19 +503,49 @@
         .status-pending { background: rgba(241, 196, 15, 0.15); color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.25); }
         .status-confirm { background: rgba(46, 204, 113, 0.15); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.25); }
 
-        /* ইনফো ডিসপ্লে বক্স ও পলিসি স্টাইল */
+        /* ইনফো ডিসপ্লে বক্স (নাম, জিমেইল, ফোন, অ্যাড্রেস এক লাইনে সুন্দরভাবে দেখানোর জন্য অপ্টিমাইজড) */
         .info-display-box {
             background: #040404;
             border: 1.5px solid rgba(212,175,55,0.25);
-            padding: 11px;
+            padding: 12px 14px;
             border-radius: 10px;
             margin-bottom: 8px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            gap: 10px;
         }
-        .info-lbl { font-size: 0.62rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; font-weight: 800; font-family: var(--font-body); white-space: nowrap; }
-        .info-val { font-size: 0.78rem; color: #fff; font-weight: 600; font-family: var(--font-body); overflow: hidden; text-overflow: ellipsis; max-width: 60%; text-align: right; }
+        .info-content-wrap {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 0; /* টেক্সট ওভারফ্লো রোধ করতে জরুরি */
+        }
+        .info-lbl { 
+            font-size: 0.6rem; 
+            background: var(--gold-gradient); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            text-transform: uppercase; 
+            font-weight: 800; 
+            font-family: var(--font-body); 
+            white-space: nowrap; 
+            margin-bottom: 2px; 
+        }
+        .info-val { 
+            font-size: 0.78rem; 
+            color: #fff; 
+            font-weight: 600; 
+            font-family: var(--font-body); 
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            width: 100%; 
+        }
+        .info-display-box i {
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
 
         .qr-box {
             text-align: center;
@@ -965,19 +993,31 @@
                 htmlContent += `
                     <h3 class="modal-title">Profile Information</h3>
                     <div class="info-display-box">
-                        <div><div class="info-lbl">Full Name</div><div class="info-val">${document.getElementById('homeDispName').innerText}</div></div>
+                        <div class="info-content-wrap">
+                            <div class="info-lbl">Full Name</div>
+                            <div class="info-val">${document.getElementById('homeDispName').innerText}</div>
+                        </div>
                         <i class="fa-solid fa-user" style="background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"></i>
                     </div>
                     <div class="info-display-box">
-                        <div><div class="info-lbl">Gmail Account</div><div class="info-val">${localStorage.getItem('rorraxy_email') || 'user@gmail.com'}</div></div>
+                        <div class="info-content-wrap">
+                            <div class="info-lbl">Gmail Account</div>
+                            <div class="info-val">${localStorage.getItem('rorraxy_email') || 'user@gmail.com'}</div>
+                        </div>
                         <i class="fa-solid fa-envelope" style="background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"></i>
                     </div>
                     <div class="info-display-box">
-                        <div><div class="info-lbl">WhatsApp Number</div><div class="info-val">${localStorage.getItem('rorraxy_phone') || '+880 17XXXXXXXX'}</div></div>
+                        <div class="info-content-wrap">
+                            <div class="info-lbl">WhatsApp Number</div>
+                            <div class="info-val">${localStorage.getItem('rorraxy_phone') || '+880 17XXXXXXXX'}</div>
+                        </div>
                         <i class="fa-brands fa-whatsapp" style="background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"></i>
                     </div>
                     <div class="info-display-box">
-                        <div><div class="info-lbl">Address</div><div class="info-val" id="displayAddressVal">${savedAddress || 'Not Provided'}</div></div>
+                        <div class="info-content-wrap">
+                            <div class="info-lbl">Address</div>
+                            <div class="info-val" id="displayAddressVal">${savedAddress || 'Not Provided'}</div>
+                        </div>
                         <i class="fa-solid fa-location-dot" style="background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"></i>
                     </div>
                     
@@ -1032,11 +1072,14 @@
             else if(tabType === 'tabWithdrawPopup') {
                 htmlContent += `
                     <h3 class="modal-title">Withdraw Funds</h3>
-                    <div class="info-display-box" style="margin-bottom: 12px;">
-                        <div><div class="info-lbl">Available Balance</div><div class="info-val">$0.00 USD</div></div>
+                    <div class="info-display-box">
+                        <div class="info-content-wrap">
+                            <div class="info-lbl">Available Balance</div>
+                            <div class="info-val">$0.00 USD</div>
+                        </div>
                         <i class="fa-solid fa-wallet" style="background:var(--gold-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"></i>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="margin-top: 12px;">
                         <label>Withdraw Amount ($ USD)</label>
                         <input type="number" id="withdrawAmount" placeholder="Enter amount">
                     </div>
